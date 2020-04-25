@@ -11,7 +11,7 @@ ext {
 
 apply from: 'https://raw.githubusercontent.com/bb4/bb4-common/master/bb4.gradle'
 
-task runHelloWorld(type: JavaExec, dependsOn: classes) {
+task runColorMixer(type: JavaExec, dependsOn: classes) {
     group = 'application'
     main = 'com.barrybecker4.colormixer.ColorMixer'
     classpath = sourceSets.main.runtimeClasspath
