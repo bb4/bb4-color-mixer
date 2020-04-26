@@ -1,6 +1,9 @@
 // Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
 package com.barrybecker4.colormixer
 
+import java.awt.Toolkit
+import java.awt.event.{WindowAdapter, WindowEvent}
+
 import com.barrybecker4.colormixer.ui.ColorMixerPanel
 import com.barrybecker4.ui.application.ApplicationApplet
 import com.barrybecker4.ui.util.GUIUtil
@@ -8,8 +11,12 @@ import javax.swing._
 
 
 object ColorMixer extends App {
-  val simulator = new ColorMixer(args)
-  GUIUtil.showApplet(simulator)
+  val mixer = new ColorMixer(args)
+
+  mixer.getContentPane.setSize(600, 900)
+  println("size = " + mixer.getContentPane.getSize())
+
+  GUIUtil.showApplet(mixer)
 }
 
 /**

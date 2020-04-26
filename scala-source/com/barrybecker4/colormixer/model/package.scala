@@ -1,7 +1,6 @@
 package com.barrybecker4.colormixer
 
 import java.awt.AlphaComposite
-
 import com.barrybecker4.common.app.AppContext
 
 
