@@ -8,7 +8,6 @@ import javax.swing._
 
 
 object ColorMixer extends App {
-  println("args = " + args.mkString(", "))
   val simulator = new ColorMixer(args)
   GUIUtil.showApplet(simulator)
 }

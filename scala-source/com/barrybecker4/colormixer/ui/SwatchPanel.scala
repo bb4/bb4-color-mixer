@@ -12,7 +12,7 @@ object SwatchPanel {
   val INITIAL_OPACITY_B = 0.5f
 
   private def getColorWithOp(c: Color, op: Float): Color =
-    new Color(c.getRed, c.getGreen, c.getBlue, (255 *op).toInt)
+    new Color(c.getRed, c.getGreen, c.getBlue, (255 * op).toInt)
 }
 
 /**
@@ -30,8 +30,8 @@ class SwatchPanel(var colorA: Color, var colorB: Color, var rule: Int) extends J
     this.colorB = colorB
     this.opacityA = opacityA
     this.opacityB = opacityB
-    this.setDoubleBuffered(false)
-    this.repaint()
+    //this.setDoubleBuffered(false)
+    //this.repaint()
   }
 
   def setOpacityA(op: Float): Unit =

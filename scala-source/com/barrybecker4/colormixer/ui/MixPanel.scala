@@ -4,7 +4,9 @@ package com.barrybecker4.colormixer.ui
 import com.barrybecker4.ui.util.GUIUtil
 import javax.swing._
 import java.awt._
+
 import MixPanel._
+import com.barrybecker4.colormixer.model.PorterDuffRule
 import javax.swing.border.EmptyBorder
 
 
@@ -15,12 +17,10 @@ object MixPanel {
 
 /**
   * Shows the color mixer for a given rule along with title and description
-  * @author Barry Becker
   */
-class MixPanel(var colorA: Color, var colorB: Color,
-               var rule: Int, var label: String, val tip: String) extends JPanel {
+class MixPanel(var colorA: Color, var colorB: Color, val rule: PorterDuffRule) extends JPanel {
 
-  private val titlePanel = new JLabel("<html>" + label + "</html>")
+  private val titlePanel = new JLabel("<html>" + rule.name + "</html>")
   titlePanel.setBorder(new EmptyBorder(0, 5, 0, 0))
   titlePanel.setFont(TITLE_FONT)
   titlePanel.setVerticalAlignment(SwingConstants.TOP)
@@ -31,11 +31,11 @@ class MixPanel(var colorA: Color, var colorB: Color,
   titlePanel.setPreferredSize(dim)
   titlePanel.setMaximumSize(dim)
 
-  private val swatchPanel: SwatchPanel = new SwatchPanel(colorA, colorB, rule)
+  private val swatchPanel: SwatchPanel = new SwatchPanel(colorA, colorB, rule.compositeRule)
   swatchPanel.setMinimumSize(minDim)
   swatchPanel.setPreferredSize(dim)
 
-  private val descPanel = new JLabel("<html>" + tip + "</html>")
+  private val descPanel = new JLabel("<html>" + rule.description + "</html>")
   val descDim = new Dimension(600, HEIGHT)
   descPanel.setMinimumSize(minDim)
   descPanel.setPreferredSize(descDim)
@@ -43,7 +43,7 @@ class MixPanel(var colorA: Color, var colorB: Color,
   descPanel.setVerticalAlignment(SwingConstants.TOP)
 
   setLayout(new BoxLayout(this, BoxLayout.X_AXIS))
-  setToolTipText(tip)
+  setToolTipText(rule.description)
 
   add(titlePanel)
   add(swatchPanel)
