@@ -1,9 +1,8 @@
-// Copyright by Barry G. Becker, 2005-2018. Licensed under MIT License: http://www.opensource.org/licenses/MIT
-package com.barrybecker4.colormixer
+// Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
+package com.barrybecker4.colormixer.ui
 
 import java.awt._
 import java.awt.image.BufferedImage
-
 import javax.swing._
 import SwatchPanel._
 
@@ -46,7 +45,6 @@ class SwatchPanel(var colorA: Color, var colorB: Color, var rule: Int) extends J
   override protected def paintComponent(g: Graphics): Unit = {
     super.paintComponents(g)
     val g2 = g.asInstanceOf[Graphics2D]
-    println("painting")
 
     drawBackground(g2)
     drawColorSwatchesInImage(g2, getWidth - 50, getHeight / 2 - 10)

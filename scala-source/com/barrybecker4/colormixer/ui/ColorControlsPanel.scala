@@ -1,9 +1,9 @@
-package com.barrybecker4.colormixer
+// Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
+package com.barrybecker4.colormixer.ui
 
-import java.awt.event.{ActionEvent, ActionListener}
 import java.awt.Color
-
-import com.barrybecker4.colormixer.SwatchPanel.{INITIAL_OPACITY_A, INITIAL_OPACITY_B}
+import java.awt.event.{ActionEvent, ActionListener}
+import com.barrybecker4.colormixer.ui.SwatchPanel.{INITIAL_OPACITY_A, INITIAL_OPACITY_B}
 import javax.swing.event.{ChangeEvent, ChangeListener}
 import javax.swing.{BorderFactory, Box, BoxLayout, JPanel}
 

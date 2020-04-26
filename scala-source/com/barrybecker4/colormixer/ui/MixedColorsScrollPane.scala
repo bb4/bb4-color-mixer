@@ -1,5 +1,5 @@
 // Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
-package com.barrybecker4.colormixer
+package com.barrybecker4.colormixer.ui
 
 import javax.swing._
 import java.awt._
@@ -86,7 +86,6 @@ case class MixedColorsScrollPane(colorA: Color, colorB: Color)
   }
 
   override def opacityChanged(opA: Float, opB: Float): Unit = {
-    println("ops changed : " + opA + " " + opB)
     setOpacityA(opA)
     setOpacityB(opB)
     this.repaint()

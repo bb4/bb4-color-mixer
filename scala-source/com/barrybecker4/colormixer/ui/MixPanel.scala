@@ -1,10 +1,9 @@
 // Copyright by Barry G. Becker, 2005-2018. Licensed under MIT License: http://www.opensource.org/licenses/MIT
-package com.barrybecker4.colormixer
+package com.barrybecker4.colormixer.ui
 
 import com.barrybecker4.ui.util.GUIUtil
 import javax.swing._
 import java.awt._
-
 import MixPanel._
 import javax.swing.border.EmptyBorder
 

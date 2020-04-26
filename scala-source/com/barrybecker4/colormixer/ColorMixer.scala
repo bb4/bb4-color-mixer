@@ -1,6 +1,7 @@
 // Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
 package com.barrybecker4.colormixer
 
+import com.barrybecker4.colormixer.ui.ColorMixerPanel
 import com.barrybecker4.ui.application.ApplicationApplet
 import com.barrybecker4.ui.util.GUIUtil
 import javax.swing._
