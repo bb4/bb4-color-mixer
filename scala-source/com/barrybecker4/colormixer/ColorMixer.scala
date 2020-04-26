@@ -8,7 +8,8 @@ import javax.swing._
 
 
 object ColorMixer extends App {
-  val simulator = new ColorMixer
+  println("args = " + args.mkString(", "))
+  val simulator = new ColorMixer(args)
   GUIUtil.showApplet(simulator)
 }
 
@@ -16,11 +17,9 @@ object ColorMixer extends App {
   * Demo to show all the different Porter/Duff rules for  colors mixing using Java2D API.
   * @author Barry Becker
   */
-class ColorMixer extends ApplicationApplet {
+class ColorMixer(args: Array[String]) extends ApplicationApplet(args) {
 
   override def createMainPanel: JPanel = {
     ColorMixerPanel()
   }
-
-  override def getName = "Color Mixer"
 }

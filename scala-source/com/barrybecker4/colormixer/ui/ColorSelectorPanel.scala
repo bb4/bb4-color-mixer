@@ -3,29 +3,33 @@ package com.barrybecker4.colormixer.ui
 
 import java.awt.Color
 import java.awt.event.ActionListener
+import java.text.DecimalFormat
 import java.util
+
 import com.barrybecker4.ui.components.ColorInputPanel
 import javax.swing.event.{ChangeEvent, ChangeListener}
 import javax.swing._
-import ColorSelectorPanel.SLIDER_TICKS
+import ColorSelectorPanel._
 import SwatchPanel.INITIAL_OPACITY_A
 
 
 object ColorSelectorPanel {
-  val SLIDER_TICKS = 1000
+  private val SLIDER_TICKS = 100
+  private val OPACITY_FORMAT = new DecimalFormat("#.00")
+  private def opFormat(op: Float): String = {
+    if (op > 0.994) "1.0" else OPACITY_FORMAT.format(op)
+  }
 }
-
 /**
   * Allows you to select a color and its opacity
-  * @author Barry Becker
   */
 class ColorSelectorPanel(label: String, tooltip: String,
                          initialColor: Color, initialOpacity: Float,
                          aListener: ActionListener, changeListener: ChangeListener ) extends JPanel {
 
-  private var colorButton: JButton = createColorButton(initialColor)
-  private var opacitySlider: JSlider = createOpacitySlider
-  private var opacitySliderLabel: JLabel = new JLabel(s"Opacity ($INITIAL_OPACITY_A)")
+  private val colorButton: JButton = createColorButton(initialColor)
+  private val opacitySlider: JSlider = createOpacitySlider
+  private val opacitySliderLabel: JLabel = new JLabel(s"Opacity ($INITIAL_OPACITY_A)")
 
   val colorPanel = new ColorInputPanel(label, tooltip, colorButton, aListener)
 
@@ -38,10 +42,6 @@ class ColorSelectorPanel(label: String, tooltip: String,
 
   def getColor: Color = colorButton.getBackground
   def getOpacity: Float = opacitySlider.getValue.toFloat / SLIDER_TICKS
-
-  private def getSliderLabel: String = {
-    s"Opacity (${opacitySlider.getValue / SLIDER_TICKS})"
-  }
 
   private def createOpacitySlider = {
     val initialSliderValue = (initialOpacity * SLIDER_TICKS).toInt
@@ -56,9 +56,10 @@ class ColorSelectorPanel(label: String, tooltip: String,
     dict.put(SLIDER_TICKS, new JLabel("1.0"))
     opacitySlider.setLabelTable(dict)
     opacitySlider.setPaintLabels(true)
+
     opacitySlider.addChangeListener(changeListener)
     opacitySlider.addChangeListener((e: ChangeEvent) => {
-      opacitySliderLabel.setText(s"Opacity ($getOpacity)")
+      opacitySliderLabel.setText(s"Opacity (${opFormat(this.getOpacity)})")
     })
     opacitySlider
   }

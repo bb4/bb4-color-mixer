@@ -1,7 +1,8 @@
 // Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
 package com.barrybecker4.colormixer.ui
 
-import java.awt.{BorderLayout, Color}
+import java.awt.{BorderLayout, Color, Dimension}
+
 import javax.swing.{BorderFactory, JPanel}
 
 
