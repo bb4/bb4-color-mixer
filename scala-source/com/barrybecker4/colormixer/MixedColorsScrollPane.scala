@@ -1,17 +1,17 @@
-// Copyright by Barry G. Becker, 2005-2018. Licensed under MIT License: http://www.opensource.org/licenses/MIT
+// Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
 package com.barrybecker4.colormixer
 
 import javax.swing._
 import java.awt._
-
 import ScrollPaneConstants._
-import javax.swing.border.MatteBorder
 
 
 /**
-  * @author Barry Becker
+  * Shows all the different ways to mix the colors using the Port/Duff rules
   */
-class MixedColorsScrollPane(val colorA: Color, val colorB: Color) extends JPanel {
+case class MixedColorsScrollPane(colorA: Color, colorB: Color)
+  extends JPanel with ColorChangeListener {
+
   private[colormixer] var mainPanel = new JPanel()
   mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS))
 
@@ -68,6 +68,7 @@ class MixedColorsScrollPane(val colorA: Color, val colorB: Color) extends JPanel
     p.setPreferredSize(new Dimension(200, 60))
     mainPanel.add(p)
   })
+
   this.setLayout(new BorderLayout)
   this.add(scrollPane, BorderLayout.CENTER)
 
@@ -79,4 +80,15 @@ class MixedColorsScrollPane(val colorA: Color, val colorB: Color) extends JPanel
 
   def setOpacityB(opacity: Float): Unit =
     for (p <- mixPanels) p.setOpacityB(opacity)
+
+  override def colorChanged(colorA: Color, opA: Float, colorB: Color, opB: Float): Unit = {
+    setColorsToMix(colorA, opA, colorB, opB)
+  }
+
+  override def opacityChanged(opA: Float, opB: Float): Unit = {
+    println("ops changed : " + opA + " " + opB)
+    setOpacityA(opA)
+    setOpacityB(opB)
+    this.repaint()
+  }
 }

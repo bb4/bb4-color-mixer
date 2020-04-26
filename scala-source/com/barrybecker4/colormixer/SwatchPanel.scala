@@ -8,7 +8,6 @@ import javax.swing._
 import SwatchPanel._
 
 
-
 object SwatchPanel {
   val INITIAL_OPACITY_A = 1.0f
   val INITIAL_OPACITY_B = 0.5f
@@ -47,6 +46,7 @@ class SwatchPanel(var colorA: Color, var colorB: Color, var rule: Int) extends J
   override protected def paintComponent(g: Graphics): Unit = {
     super.paintComponents(g)
     val g2 = g.asInstanceOf[Graphics2D]
+    println("painting")
 
     drawBackground(g2)
     drawColorSwatchesInImage(g2, getWidth - 50, getHeight / 2 - 10)

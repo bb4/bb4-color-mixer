@@ -22,7 +22,7 @@ class MixPanel(var colorA: Color, var colorB: Color,
                var rule: Int, var label: String, val tip: String) extends JPanel {
 
   private val titlePanel = new JLabel("<html>" + label + "</html>")
-  titlePanel.setBorder(new EmptyBorder(0, 4, 0, 0))
+  titlePanel.setBorder(new EmptyBorder(0, 5, 0, 0))
   titlePanel.setFont(TITLE_FONT)
   titlePanel.setVerticalAlignment(SwingConstants.TOP)
 
