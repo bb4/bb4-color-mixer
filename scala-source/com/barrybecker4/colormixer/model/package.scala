@@ -2,10 +2,16 @@ package com.barrybecker4.colormixer
 
 import java.awt.AlphaComposite
 
+import com.barrybecker4.common.app.AppContext
+
 
 package object model {
 
   val porterDuffRules: Array[PorterDuffRule] = Array(
+    PorterDuffRule(AppContext.getLabel("DEST_ATOP_SRC"),
+      AppContext.getLabel("DEST_ATOP_SRC_DESC"),
+      AlphaComposite.DST_ATOP),
+
     PorterDuffRule("Destination Atop Source",
       "The part of the destination lying inside of the source is composited over the source and replaces the destination",
       AlphaComposite.DST_ATOP),

@@ -1,7 +1,7 @@
 // Copyright by Barry G. Becker, 2005-2020. Licensed under MIT License: http://www.opensource.org/licenses/MIT
 package com.barrybecker4.colormixer.ui
 
-import java.awt.Color
+import java.awt.{Color, Dimension}
 import java.awt.event.ActionListener
 import java.text.DecimalFormat
 import java.util
@@ -11,6 +11,7 @@ import javax.swing.event.{ChangeEvent, ChangeListener}
 import javax.swing._
 import ColorSelectorPanel._
 import SwatchPanel.INITIAL_OPACITY_A
+import javax.swing.border.MatteBorder
 
 
 object ColorSelectorPanel {
@@ -32,6 +33,7 @@ class ColorSelectorPanel(label: String, tooltip: String,
   private val opacitySliderLabel: JLabel = new JLabel(s"Opacity ($INITIAL_OPACITY_A)")
 
   val colorPanel = new ColorInputPanel(label, tooltip, colorButton, aListener)
+  colorPanel.setPreferredSize(new Dimension(180, 20))
 
   setLayout(new BoxLayout(this, BoxLayout.X_AXIS))
   add(colorPanel)
