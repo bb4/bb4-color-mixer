@@ -10,10 +10,7 @@ package object model {
     PorterDuffRule(AppContext.getLabel("DEST_ATOP_SRC"),
       AppContext.getLabel("DEST_ATOP_SRC_DESC"),
       AlphaComposite.DST_ATOP),
-
-    PorterDuffRule("Destination Atop Source",
-      "The part of the destination lying inside of the source is composited over the source and replaces the destination",
-      AlphaComposite.DST_ATOP),
+    // TODO: i18n the rest of these strings using google translate. see example above
     PorterDuffRule("Destination In Source",
       "The part of the destination lying inside of the source replaces the destination",
       AlphaComposite.DST_IN),
