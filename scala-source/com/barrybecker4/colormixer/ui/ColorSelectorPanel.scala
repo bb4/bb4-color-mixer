@@ -30,7 +30,7 @@ class ColorSelectorPanel(label: String, tooltip: String,
 
   private val colorButton: JButton = createColorButton(initialColor)
   private val opacitySlider: JSlider = createOpacitySlider
-  private val opacitySliderLabel: JLabel = new JLabel(s"Opacity ($INITIAL_OPACITY_A)")
+  private val opacitySliderLabel: JLabel = new JLabel(s"Opacity ($INITIAL_OPACITY_A) ")
 
   val colorPanel = new ColorInputPanel(label, tooltip, colorButton, aListener)
   colorPanel.setPreferredSize(new Dimension(180, 20))
@@ -61,7 +61,7 @@ class ColorSelectorPanel(label: String, tooltip: String,
 
     opacitySlider.addChangeListener(changeListener)
     opacitySlider.addChangeListener((e: ChangeEvent) => {
-      opacitySliderLabel.setText(s"Opacity (${opFormat(this.getOpacity)})")
+      opacitySliderLabel.setText(s"Opacity (${opFormat(this.getOpacity)}) ")
     })
     opacitySlider
   }

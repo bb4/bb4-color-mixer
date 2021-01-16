@@ -39,6 +39,6 @@ package object model {
     PorterDuffRule("Source XOR Destination",
       "The part of the source that lies outside of the destination is combined " +
         "with the part of the destination that lies outside of the source",
-      AlphaComposite.XOR),
+      AlphaComposite.XOR)
   )
 }
