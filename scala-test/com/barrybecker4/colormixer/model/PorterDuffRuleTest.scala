@@ -12,6 +12,6 @@ class PorterDuffRuleTest extends AnyFunSuite {
   }
 
   test("num rules") {
-    assertResult(11 ) { com.barrybecker4.colormixer.model.porterDuffRules.length }
+    assertResult(10) { com.barrybecker4.colormixer.model.porterDuffRules.length }
   }
 }

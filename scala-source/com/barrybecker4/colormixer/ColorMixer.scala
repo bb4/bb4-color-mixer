@@ -10,13 +10,15 @@ import com.barrybecker4.ui.util.GUIUtil
 import javax.swing._
 
 
-object ColorMixer extends App {
-  val mixer = new ColorMixer(args)
+object ColorMixer {
+  def main(args: Array[String]): Unit = {
+    val mixer = new ColorMixer(args)
 
-  mixer.getContentPane.setSize(600, 900)
-  println("size = " + mixer.getContentPane.getSize())
+    mixer.getContentPane.setSize(600, 900)
+    println("size = " + mixer.getContentPane.getSize())
 
-  GUIUtil.showApplet(mixer)
+    GUIUtil.showApplet(mixer)
+  }
 }
 
 /**
