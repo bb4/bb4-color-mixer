@@ -11,7 +11,6 @@ import javax.swing.event.{ChangeEvent, ChangeListener}
 import javax.swing._
 import ColorSelectorPanel._
 import SwatchPanel.INITIAL_OPACITY_A
-import javax.swing.border.MatteBorder
 
 
 object ColorSelectorPanel {
