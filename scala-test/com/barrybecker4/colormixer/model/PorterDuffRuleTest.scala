@@ -1,9 +1,22 @@
 package com.barrybecker4.colormixer.model
 
+import com.barrybecker4.common.app.AppContext
+import com.barrybecker4.ui.util.Log
 import java.awt.AlphaComposite
+import org.scalatest.BeforeAndAfterAll
 import org.scalatest.funsuite.AnyFunSuite
 
-class PorterDuffRuleTest extends AnyFunSuite:
+class PorterDuffRuleTest extends AnyFunSuite with BeforeAndAfterAll:
+
+  /** Rule names are loaded from the app bundle, which AppContext only sees after initialize. */
+  override def beforeAll(): Unit =
+    super.beforeAll()
+    if !AppContext.isInitialized then
+      AppContext.initialize(
+        "ENGLISH",
+        List("com.barrybecker4.colormixer.message"),
+        new Log
+      )
 
   test("rule toString") {
     assertResult("PorterDuffRule(foo,bar,1)") {
